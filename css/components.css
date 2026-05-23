@@ -1,0 +1,136 @@
+
+
+/* ============================================
+   COMPONENTS.CSS — Navbar, Cursor, Buttons
+   ============================================ */
+
+/* ── Progress Bar ── */
+#progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0%;
+  background: var(--progress-bg);
+  z-index: 9998;
+  transition: width 0.06s linear;
+}
+
+/* ── Custom Cursor ── */
+#cursor { position: fixed; pointer-events: none; z-index: 999999; top: 0; left: 0; }
+#cursor-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--text-primary);
+  position: absolute; transform: translate(-50%,-50%);
+  transition: width 0.2s var(--ease-back), height 0.2s var(--ease-back);
+}
+#cursor-ring {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--text-primary);
+  position: absolute; transform: translate(-50%,-50%);
+  opacity: 0.4;
+}
+body.cursor-hover #cursor-dot { width: 12px; height: 12px; }
+body.cursor-hover #cursor-ring { width: 52px; height: 52px; opacity: 0.2; }
+body.cursor-text #cursor-ring { width: 72px; height: 22px; border-radius: 4px; opacity: 0.15; }
+
+/* ── Navbar (floating pill) ── */
+#navbar {
+  position: fixed; top: 0; left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding-top: 0.8rem;
+  transition: opacity 0.3s;
+}
+.nav-pill {
+  display: flex; align-items: center; gap: 0.15rem;
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid var(--border-strong);
+  border-top-color: rgba(255, 255, 255, 0.15);
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-pill);
+  padding: 0.42rem 0.55rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  white-space: nowrap;
+}
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 0.9rem;
+  color: var(--text-primary);
+  padding: 0.25rem 0.75rem;
+  margin-right: 0.3rem;
+  letter-spacing: -0.01em;
+}
+
+.nav-links-wrap { display: flex; align-items: center; gap: 0.08rem; }
+.nav-link {
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--text-secondary);
+  padding: 0.3rem 0.82rem;
+  border-radius: var(--radius-pill);
+  transition: color 0.2s, background 0.2s;
+  letter-spacing: 0.01em;
+}
+.nav-link:hover, .nav-link.active { color: var(--text-primary); background: var(--border); }
+.nav-sep { width: 1px; height: 14px; background: var(--border-strong); margin: 0 0.35rem; }
+.nav-actions { display: flex; align-items: center; gap: 0.35rem; margin-left: 0.15rem; }
+.btn-theme {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+.btn-theme:hover { background: var(--bg-secondary); color: var(--text-primary); }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.25s var(--ease-smooth);
+  cursor: none;
+}
+.btn-solid {
+  background: var(--accent); color: var(--text-inv);
+  border: 1px solid var(--accent);
+}
+.btn-solid:hover { opacity: 0.85; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.btn-outline {
+  background: transparent; color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+.btn-outline:hover { background: var(--bg-secondary); transform: translateY(-2px); }
+.btn-download {
+  background: transparent; border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  padding: 0.7rem 1.5rem; border-radius: var(--radius-pill);
+  font-family: var(--font-mono); font-size: 0.72rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  transition: all 0.25s;
+  display: inline-flex; align-items: center; gap: 0.6rem; cursor: none;
+}
+.btn-download svg { transition: transform 0.3s var(--ease-back); }
+.btn-download:hover { background: var(--accent); color: var(--text-inv); border-color: var(--accent); transform: translateY(-2px); }
+.btn-download:hover svg { transform: translateY(2px); }
+
+/* ── Tag / Pill ── */
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: 0.67rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.28rem 0.75rem; border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong); color: var(--text-muted);
+  transition: all 0.2s;
+}
+[data-theme="dark"] .tag {
+  color: #d4cfc4;
+  border-color: rgba(240, 234, 216, 0.30);
+}
+.tag:hover { background: var(--accent); color: var(--text-inv); border-color: var(--accent); }
+
+@media (max-width: 768px) {
+  #navbar { top: 0.8rem; max-width: calc(100vw - 2rem); }
+  .nav-links-wrap, .nav-sep { display: none; }
+}

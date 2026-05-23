@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metlapalli Mehereswar — Portfolio</title>
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════ INTRO OVERLAY ═══════════════ -->
+  <div id="intro-overlay" aria-hidden="true">
+    <!-- Decorative corner brackets -->
+    <div class="intro-corner intro-corner--tl"></div>
+    <div class="intro-corner intro-corner--tr"></div>
+    <div class="intro-corner intro-corner--bl"></div>
+    <div class="intro-corner intro-corner--br"></div>
+
+    <div class="intro-inner">
+      <div class="intro-initials">ME</div>
+      <div class="intro-divider-row">
+        <div class="intro-bar"></div>
+        <span class="intro-pct">0%</span>
+      </div>
+      <div class="intro-tagline">Portfolio &mdash; 2025</div>
+    </div>
+
+    <!-- Bottom status strip -->
+    <div class="intro-status">
+      <span class="intro-status-pulse"></span>
+      <span class="intro-status-text">Initializing</span>
+    </div>
+  </div>
+
+  <!-- 3D canvas -->
+  <canvas id="three-canvas"></canvas>
+  <!-- Grain -->
+  <div id="grain-overlay"></div>
+  <!-- Progress bar -->
+  <div id="progress-bar"></div>
+  <!-- Cursor -->
+  <div id="cursor">
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+  </div>
+
+  <!-- ═══════════════ NAVBAR ═══════════════ -->
+  <nav id="navbar">
+    <div class="nav-pill">
+      <span class="nav-logo-text">ME</span>
+      <div class="nav-links-wrap">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-sep"></div>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn-theme" aria-label="Toggle theme">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section id="hero">
+    <canvas id="hero-grid-canvas"
+      style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+
+    <div class="section-inner hero-content">
+      <div class="hero-top reveal">
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          <span class="t-label">Available for internships</span>
+        </div>
+        <span class="t-label">2024 — 2025</span>
+      </div>
+
+      <h1 class="hero-headline reveal delay-1">
+        Metlapalli<br /><em>Mehereswar.</em>
+      </h1>
+
+      <div class="hero-subline">
+        <div>
+          <div class="hero-role-line"><span id="typewriter-role"></span></div>
+          <p class="hero-desc reveal delay-2">
+            3rd year Computer Science student building purposeful software.
+            Full stack, systems, and everything in between.
+          </p>
+        </div>
+        <div class="hero-actions reveal delay-3">
+          <a id="cv-download" class="btn-download" href="Resume.pdf" download="Mehereswar_Resume.pdf">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download Resume
+          </a>
+          <a href="#projects" class="btn btn-solid">View work</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-clock">
+      <span class="clock-label">LOCAL TIME</span>
+      <span id="live-clock">00:00:00</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════ MARQUEE ═══════════════ -->
+  <div class="marquee-band" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Java</span><span>Python</span><span>C/C++</span><span>SQL</span>
+      <span>JavaScript</span><span>HTML/CSS</span><span>TensorFlow</span><span>PyTorch</span>
+      <span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Scikit-learn</span><span>OpenCV</span>
+      <span>Git</span><span>VS Code</span><span>GitHub</span><span>Figma</span>
+      <span>Java</span><span>Python</span><span>C/C++</span><span>SQL</span>
+      <span>JavaScript</span><span>HTML/CSS</span><span>TensorFlow</span><span>PyTorch</span>
+      <span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Scikit-learn</span><span>OpenCV</span>
+      <span>Git</span><span>VS Code</span><span>GitHub</span><span>Figma</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════ ABOUT ═══════════════ -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div>
+          <div class="number-large reveal" aria-hidden="true">01</div>
+          <h2 class="about-heading reveal delay-1">Building with<br />intention.</h2>
+          <p class="about-body reveal delay-2">
+            I'm a <strong>Computer Science student</strong> at [Your University], passionate about
+            the intersection of elegant engineering and real-world impact. I care deeply about
+            how software feels, not just how it works.
+          </p>
+          <p class="about-body reveal delay-3">
+            When I'm not building, I'm solving problems on LeetCode, reading about distributed
+            systems, or contributing to open source. I believe <strong>great software is
+              empathy encoded in code.</strong>
+          </p>
+          <div class="about-stats-row stagger-group">
+            <div class="stat-item">
+              <div class="stat-val"><span data-count="6">0</span><span class="stat-unit">+</span></div>
+              <div class="stat-desc">Projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val"><span data-count="100">0</span><span class="stat-unit">+</span></div>
+              <div class="stat-desc">DSA problems</div>
+            </div>
+
+          </div>
+
+          <!-- Tech stack icon grid -->
+          <div class="tech-grid reveal delay-4">
+            <span class="t-label" style="display:block;margin-bottom:1rem">Tech Stack</span>
+
+            <!-- Languages -->
+            <span class="t-label"
+              style="display:block;margin-bottom:0.5rem;opacity:0.5;font-size:0.65rem;letter-spacing:0.15em">LANGUAGES</span>
+            <div class="tech-icons-wrap" style="margin-bottom:1.2rem">
+              <div class="tech-icon-card" title="Java"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+                  alt="Java" /><span>Java</span></div>
+              <div class="tech-icon-card" title="Python"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                  alt="Python" /><span>Python</span></div>
+              <div class="tech-icon-card" title="C/C++"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+                  alt="C/C++" /><span>C/C++</span></div>
+              <div class="tech-icon-card" title="SQL"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg"
+                  alt="SQL" /><span>SQL</span></div>
+              <div class="tech-icon-card" title="JavaScript"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                  alt="JavaScript" /><span>JavaScript</span></div>
+              <div class="tech-icon-card" title="HTML/CSS"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                  alt="HTML/CSS" /><span>HTML/CSS</span></div>
+            </div>
+
+            <!-- Frameworks -->
+            <span class="t-label"
+              style="display:block;margin-bottom:0.5rem;opacity:0.5;font-size:0.65rem;letter-spacing:0.15em">FRAMEWORKS</span>
+            <div class="tech-icons-wrap" style="margin-bottom:1.2rem">
+              <div class="tech-icon-card" title="TensorFlow"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg"
+                  alt="TensorFlow" /><span>TensorFlow</span></div>
+              <div class="tech-icon-card" title="PyTorch"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
+                  alt="PyTorch" /><span>PyTorch</span></div>
+            </div>
+
+            <!-- Developer Tools -->
+            <span class="t-label"
+              style="display:block;margin-bottom:0.5rem;opacity:0.5;font-size:0.65rem;letter-spacing:0.15em">DEVELOPER
+              TOOLS</span>
+            <div class="tech-icons-wrap" style="margin-bottom:1.2rem">
+              <div class="tech-icon-card" title="Git"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                  alt="Git" /><span>Git</span></div>
+              <div class="tech-icon-card" title="VS Code"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
+                  alt="VS Code" /><span>VS Code</span></div>
+              <div class="tech-icon-card" title="GitHub"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                  alt="GitHub" /><span>GitHub</span></div>
+              <div class="tech-icon-card" title="Figma"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
+                  alt="Figma" /><span>Figma</span></div>
+              <div class="tech-icon-card" title="Wix Studio"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wix/wix-original.svg"
+                  alt="Wix Studio" /><span>Wix Studio</span></div>
+              <div class="tech-icon-card" title="Webflow"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/webflow/webflow-original.svg"
+                  alt="Webflow" /><span>Webflow</span></div>
+            </div>
+
+            <!-- Libraries -->
+            <span class="t-label"
+              style="display:block;margin-bottom:0.5rem;opacity:0.5;font-size:0.65rem;letter-spacing:0.15em">LIBRARIES</span>
+            <div class="tech-icons-wrap">
+              <div class="tech-icon-card" title="pandas"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg"
+                  alt="pandas" /><span>pandas</span></div>
+              <div class="tech-icon-card" title="NumPy"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg"
+                  alt="NumPy" /><span>NumPy</span></div>
+              <div class="tech-icon-card" title="Matplotlib"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg"
+                  alt="Matplotlib" /><span>Matplotlib</span></div>
+              <div class="tech-icon-card" title="Scikit-learn"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg"
+                  alt="Scikit-learn" /><span>Scikit-learn</span></div>
+              <div class="tech-icon-card" title="OpenCV"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg"
+                  alt="OpenCV" /><span>OpenCV</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive code terminal widget — replaces placeholder images -->
+        <div class="about-canvas-wrap reveal-scale delay-1">
+          <canvas id="about-canvas"></canvas>
+          <div class="about-canvas-label">
+            <span class="terminal-dot" style="background:#e06c75"></span>
+            <span class="terminal-dot" style="background:#e5c07b"></span>
+            <span class="terminal-dot" style="background:#98c379"></span>
+            <span class="terminal-title">~/Mehereswar/portfolio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════ SKILLS ═══════════════ -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="skills-layout">
+        <div class="skills-left-sticky">
+          <div class="number-large reveal" aria-hidden="true">02</div>
+          <h2 class="skills-heading reveal delay-1">What<br />I know.</h2>
+          <p class="skills-desc reveal delay-2">Hover any category to explore the skills within it. Click a tab to
+            focus.</p>
+          <div class="skill-tabs reveal delay-3">
+            <button class="skill-tab active" data-cat="">All</button>
+            <button class="skill-tab" data-cat="Frontend">Frontend</button>
+            <button class="skill-tab" data-cat="Backend">Backend</button>
+            <button class="skill-tab" data-cat="Database">Database</button>
+            <button class="skill-tab" data-cat="DevOps">DevOps</button>
+            <button class="skill-tab" data-cat="Core">Core CS</button>
+          </div>
+        </div>
+        <div class="skills-orbit-wrap reveal-scale delay-2">
+          <canvas id="skills-canvas"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════ PROJECTS ═══════════════ -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="projects-header">
+        <div>
+          <div class="number-large reveal" aria-hidden="true">03</div>
+          <h2 class="projects-heading reveal delay-1">Selected<br />Work.</h2>
+        </div>
+        <span class="projects-count reveal delay-2">06 Projects</span>
+      </div>
+    </div>
+
+    <div class="carousel-outer">
+      <div class="carousel-track">
+
+        <article class="project-card">
+          <div class="proj-num">Project — 01 / Full Stack</div>
+          <h3 class="proj-title">CollabSpace</h3>
+          <p class="proj-desc">Real-time collaborative workspace for students with live editing, video calls, and shared
+            whiteboards. Built during a 48hr hackathon.</p>
+          <div class="proj-tags">
+            <span class="tag">React</span><span class="tag">Socket.io</span><span class="tag">Node.js</span><span
+              class="tag">MongoDB</span>
+          </div>
+          <div class="proj-footer">
+            <span class="proj-link-text">Live demo — GitHub</span>
+            <a href="#" class="proj-arrow" aria-label="View project">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="proj-num">Project — 02 / Dashboard</div>
+          <h3 class="proj-title">CodeTrack</h3>
+          <p class="proj-desc">Unified dashboard aggregating LeetCode, Codeforces, and CodeChef progress. Visualizes
+            streaks and difficulty breakdown with clean charts.</p>
+          <div class="proj-tags">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Chart.js</span><span
+              class="tag">SQLite</span>
+          </div>
+          <div class="proj-footer">
+            <span class="proj-link-text">Live demo — GitHub</span>
+            <a href="#" class="proj-arrow" aria-label="View project">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="proj-num">Project — 03 / AI</div>
+          <h3 class="proj-title">SmartNotes AI</h3>
+          <p class="proj-desc">AI-powered app that auto-summarizes lecture PDFs, generates flashcards and quizzes using
+            LLMs. Piloted with 200+ students.</p>
+          <div class="proj-tags">
+            <span class="tag">Next.js</span><span class="tag">OpenAI</span><span class="tag">MongoDB</span><span
+              class="tag">Vercel</span>
+          </div>
+          <div class="proj-footer">
+            <span class="proj-link-text">Live demo — GitHub</span>
+            <a href="#" class="proj-arrow" aria-label="View project">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="proj-num">Project — 04 / Computer Vision</div>
+          <h3 class="proj-title">PPE Guard</h3>
+          <p class="proj-desc">Real-time PPE detection system for industrial CCTV feeds. Detects helmets, vests, and
+            boots using YOLO with visibility-aware heuristics to eliminate false positives at frame edges.</p>
+          <div class="proj-tags">
+            <span class="tag">Python</span><span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span
+              class="tag">NumPy</span>
+          </div>
+          <div class="proj-footer">
+            <span class="proj-link-text">Live demo — GitHub</span>
+            <a href="#" class="proj-arrow" aria-label="View project">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="proj-num">Project — 05 / Systems</div>
+          <h3 class="proj-title">CrackSense</h3>
+          <p class="proj-desc">Automated structural crack detection and monitoring system using computer vision.
+            Quantifies crack length, width, and area progression with a live web dashboard for early risk warnings.</p>
+          <div class="proj-tags">
+            <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Scikit-learn</span><span
+              class="tag">Matplotlib</span>
+          </div>
+          <div class="proj-footer">
+            <span class="proj-link-text">Live demo — GitHub</span>
+            <a href="#" class="proj-arrow" aria-label="View project">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="proj-num">Project — 06 / ML</div>
+          <h3 class="proj-title">SentimentScope</h3>
+          <p class="proj-desc">End-to-end sentiment analysis pipeline for social media data. Trains and evaluates
+            ML models using TF-IDF and LSTM, with an interactive visualisation dashboard.</p>
+          <div class="proj-tags">
+            <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">pandas</span><span
+              class="tag">Matplotlib</span>
+          </div>
+          <div class="proj-footer">
+            <span class="proj-link-text">Live demo — GitHub</span>
+            <a href="#" class="proj-arrow" aria-label="View project">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+    <div class="carousel-hint">
+      <span class="t-label">Drag to explore</span>
+      <div class="hint-line"></div>
+    </div>
+  </section>
+
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+      style="width:100%;height:80px;display:block;">
+      <path d="M0,40 Q360,80 720,40 T1440,40 V80 H0 Z" fill="var(--bg-secondary, #222)" />
+    </svg>
+  </div>
+
+  <!-- ═══════════════ CERTIFICATIONS ═══════════════ -->
+  <section id="certifications">
+    <div class="section-inner">
+      <div class="number-large reveal" aria-hidden="true">04</div>
+      <h2 class="certs-heading reveal delay-1">Credentials<br />&amp; Learning.</h2>
+
+      <div class="certs-grid">
+
+        <div class="cert-card reveal delay-1">
+          <div class="cert-issuer">Coursera / Google</div>
+          <div class="cert-name">Google Data Analytics Professional Certificate</div>
+          <div class="cert-date">Issued May 2024</div>
+          <div class="cert-footer">
+            <span class="cert-verify">Verify credential</span>
+            <span class="cert-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="cert-card reveal delay-2">
+          <div class="cert-issuer">Meta / Coursera</div>
+          <div class="cert-name">Meta Front-End Developer Professional Certificate</div>
+          <div class="cert-date">Issued Feb 2024</div>
+          <div class="cert-footer">
+            <span class="cert-verify">Verify credential</span>
+            <span class="cert-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="cert-card reveal delay-3">
+          <div class="cert-issuer">AWS</div>
+          <div class="cert-name">AWS Cloud Practitioner Essentials</div>
+          <div class="cert-date">Issued Nov 2023</div>
+          <div class="cert-footer">
+            <span class="cert-verify">Verify credential</span>
+            <span class="cert-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="cert-card reveal delay-1">
+          <div class="cert-issuer">freeCodeCamp</div>
+          <div class="cert-name">JavaScript Algorithms and Data Structures</div>
+          <div class="cert-date">Issued Sep 2023</div>
+          <div class="cert-footer">
+            <span class="cert-verify">Verify credential</span>
+            <span class="cert-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="cert-card reveal delay-2">
+          <div class="cert-issuer">NPTEL / IIT</div>
+          <div class="cert-name">Programming in Java — Elite Certificate</div>
+          <div class="cert-date">Issued Jul 2023</div>
+          <div class="cert-footer">
+            <span class="cert-verify">Verify credential</span>
+            <span class="cert-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="cert-card reveal delay-3">
+          <div class="cert-issuer">Cisco NetAcad</div>
+          <div class="cert-name">Introduction to Cybersecurity</div>
+          <div class="cert-date">Issued Mar 2023</div>
+          <div class="cert-footer">
+            <span class="cert-verify">Verify credential</span>
+            <span class="cert-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+      style="width:100%;height:80px;display:block;">
+      <path d="M0,40 Q360,80 720,40 T1440,40 V80 H0 Z" fill="var(--bg-secondary, #222)" />
+    </svg>
+  </div>
+
+  <!-- ═══════════════ CONTACT ═══════════════ -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <div class="number-large reveal" aria-hidden="true">05</div>
+          <h2 class="contact-heading reveal delay-1">Let's<br /><em>build<br />something.</em></h2>
+          <p class="contact-sub reveal delay-2">Open to internships, freelance, hackathon collaborations, and anything
+            interesting. I respond within 24 hours.</p>
+          <div class="contact-socials reveal delay-3">
+            <a href="mailto:mehereswar1318@gmail.com" class="social-link">
+              <span class="social-name">Email</span><span class="social-handle">mehereswar1318@gmail.com</span>
+            </a>
+            <a href="www.linkedin.com/in/meher-eswar" target="_blank" rel="noopener" class="social-link">
+              <span class="social-name">LinkedIn</span><span
+                class="social-handle">www.linkedin.com/in/meher-eswar</span>
+            </a>
+            <a href="https://github.com/alexkumar" target="_blank" rel="noopener" class="social-link">
+              <span class="social-name">GitHub</span><span class="social-handle">@alexkumar</span>
+            </a>
+            <a href="https://twitter.com/alexkumar_dev" target="_blank" rel="noopener" class="social-link">
+              <span class="social-name">X / Twitter</span><span class="social-handle">@alexkumar_dev</span>
+            </a>
+          </div>
+        </div>
+        <div class="contact-form reveal delay-2">
+          <form id="contact-form" novalidate>
+            <div class="form-field">
+              <label class="form-label" for="name">Your name</label>
+              <input class="form-input" type="text" id="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" placeholder="jane@example.com" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="subject">Subject</label>
+              <input class="form-input" type="text" id="subject" placeholder="Internship opportunity" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="message">Message</label>
+              <textarea class="form-textarea" id="message" placeholder="Hi Alex, I'd like to..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="form-submit">Send message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-name">Metlapalli Mehereswar</span>
+
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/three-bg.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/about-canvas.js"></script>
+  <script src="js/nav.js"></script>
+
+</body>
+
+</html>

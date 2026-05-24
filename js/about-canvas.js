@@ -25,13 +25,19 @@
   function resize() {
     W = canvas.offsetWidth;
     H = canvas.offsetHeight;
+    if (!W || !H) return; // not yet laid out
     canvas.width = Math.round(W * DPR);
     canvas.height = Math.round(H * DPR);
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);  // scale once; preserved across frames
     BADGES.forEach((b, i) => resetBadge(b, i));
   }
   requestAnimationFrame(() => resize());
+  // re-measure after layout settles (sticky + flex can delay sizing)
+  setTimeout(resize, 200);
   window.addEventListener('resize', resize, { passive: true });
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(resize).observe(canvas);
+  }
 
   /* ── Colour palette (matches editor-like scheme) ── */
   function pal() {
@@ -54,7 +60,7 @@
 
   /* ── Code lines (token arrays: [text, type]) ── */
   const CODE = [
-    [['// ', 'comment'], ['alex-kumar/portfolio', 'comment']],
+    [['// ', 'comment'], ['mehereswar/portfolio', 'comment']],
     [['import ', 'kw'], ['{ useState, useEffect }', 'plain'], [' from ', 'kw'], ['"react"', 'str']],
     [],
     [['export ', 'kw'], ['default ', 'kw'], ['function ', 'kw'], ['Portfolio', 'fn'], ['() {', 'punct']],
@@ -106,18 +112,17 @@
   }
   BADGES.forEach((b, i) => resetBadge(b, i));
 
-  /* ── Mouse hover ──
-     getBoundingClientRect() returns CSS pixels.
-     Because ctx is pre-scaled by DPR, drawing coords are in CSS pixels too,
-     so event coords map directly — no extra scaling needed.
-  */
-  let hoveredLine = -1;
+   /* ── Mouse hover ──
+      Store raw mouse Y in CSS pixels relative to the canvas element.
+      The actual hovered line is computed inside draw() where startLine is known.
+   */
+  let mouseY = -1;
   canvas.addEventListener('mousemove', e => {
     const rect = canvas.getBoundingClientRect();
-    const cy = e.clientY - rect.top;
-    hoveredLine = Math.floor((cy - PAD_T) / LINE_H);
+    // Map visual position to canvas CSS coords (accounts for any CSS transforms)
+    mouseY = (e.clientY - rect.top) * (H / rect.height);
   });
-  canvas.addEventListener('mouseleave', () => { hoveredLine = -1; });
+  canvas.addEventListener('mouseleave', () => { mouseY = -1; });
 
   /* ── Clock ── */
   let tick = 0;
@@ -162,6 +167,11 @@
     /* Draw lines */
     const maxVisible = Math.min(visibleLines + 1, CODE.length);
     const startLine = Math.max(0, maxVisible - Math.floor((H - PAD_T * 2) / LINE_H));
+
+    /* Compute hovered line from raw mouseY — always in sync with startLine */
+    const hoveredLine = mouseY >= 0
+      ? Math.floor((mouseY - PAD_T) / LINE_H) + startLine
+      : -1;
 
     for (let i = startLine; i < maxVisible; i++) {
       const y = PAD_T + (i - startLine) * LINE_H + LINE_H / 2;

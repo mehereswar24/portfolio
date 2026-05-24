@@ -195,28 +195,7 @@
 })();
 
 
-/* ══════════════════════════════════════
-   TYPEWRITER
-══════════════════════════════════════ */
-(function typewriter() {
-  const el = document.getElementById('typewriter-role');
-  if (!el) return;
-  const roles = ['Full Stack Developer', 'Problem Solver', 'Open Source Contributor', 'Systems Thinker', 'UI Craftsman'];
-  let ri = 0, ci = 0, deleting = false;
-  const SPEED = 70, DEL_SPEED = 38, PAUSE = 2000;
-  function tick() {
-    const word = roles[ri];
-    if (!deleting) {
-      el.textContent = word.slice(0, ++ci);
-      if (ci === word.length) { deleting = true; setTimeout(tick, PAUSE); return; }
-    } else {
-      el.textContent = word.slice(0, --ci);
-      if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
-    }
-    setTimeout(tick, deleting ? DEL_SPEED : SPEED);
-  }
-  tick();
-})();
+/* Typewriter removed for static premium headline */
 
 
 /* ══════════════════════════════════════
@@ -228,11 +207,12 @@
   const ctx = canvas.getContext('2d');
 
   const CATEGORIES = {
-    Frontend:  { skills: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'HTML/CSS'], color: '#c8a87a', angle: 0 },
-    Backend:   { skills: ['Node.js', 'Express', 'Python', 'FastAPI', 'REST'], color: '#8a7a60', angle: Math.PI * 2 / 3 },
-    Database:  { skills: ['MongoDB', 'PostgreSQL', 'Redis', 'Prisma'], color: '#a89060', angle: Math.PI * 4 / 3 },
-    DevOps:    { skills: ['Git', 'Docker', 'Linux', 'Vercel', 'AWS'], color: '#b89878', angle: Math.PI / 3 },
-    Core:      { skills: ['DSA', 'OOP', 'OS', 'Networking', 'Design'], color: '#907060', angle: Math.PI },
+    Frontend:  { skills: ['HTML/CSS', 'JavaScript', 'ReactJS', 'Figma', 'Wix Studio', 'Webflow'], color: '#c8a87a', angle: 0 },
+    Backend:   { skills: ['Python', 'Java', 'C/C++', 'FastAPI'], color: '#8a7a60', angle: Math.PI * 2 / 3 },
+    AIML:      { skills: ['TensorFlow', 'PyTorch', 'scikit-learn', 'OpenCV', 'Pandas', 'NumPy'], color: '#d4a85a', angle: Math.PI * 5 / 3 },
+    Database:  { skills: ['SQL', 'DBMS'], color: '#a89060', angle: Math.PI * 4 / 3 },
+    DevOps:    { skills: ['Git', 'GitHub', 'VS Code'], color: '#b89878', angle: Math.PI / 3 },
+    Core:      { skills: ['DSA', 'OOP'], color: '#907060', angle: Math.PI },
   };
 
   const cats = Object.entries(CATEGORIES);

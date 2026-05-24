@@ -205,9 +205,9 @@
 [data-theme="dark"] .tech-icon-card img {
   filter: brightness(0.9) saturate(0.85);
 }
-/* Express icon is black — invert in dark mode */
 [data-theme="dark"] .tech-icon-card img[alt="Express"],
-[data-theme="dark"] .tech-icon-card img[alt="Next.js"] {
+[data-theme="dark"] .tech-icon-card img[alt="Next.js"],
+[data-theme="dark"] .tech-icon-card img[alt="Wix Studio"] {
   filter: invert(1) brightness(0.85);
 }
 .tech-icon-card span {

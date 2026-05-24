@@ -32,10 +32,9 @@
   const cvBtn = document.getElementById('cv-download');
   if (cvBtn) {
     cvBtn.addEventListener('click', () => {
-      // Replace href below with your real CV PDF path
       const a = document.createElement('a');
-      a.href = 'assets/cv.pdf';
-      a.download = 'Alex_Kumar_CV.pdf';
+      a.href = 'Resume.pdf';
+      a.download = 'Metlapalli_Mehereswar_Resume.pdf';
       a.click();
     });
   }

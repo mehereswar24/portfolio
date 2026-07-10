@@ -209,7 +209,7 @@
   const CATEGORIES = {
     Frontend:  { skills: ['HTML/CSS', 'JavaScript', 'React', 'Figma'], color: '#c8a87a', angle: 0 },
     Backend:   { skills: ['Python', 'Java', 'C/C++', 'FastAPI', 'Node.js'], color: '#8a7a60', angle: Math.PI * 2 / 3 },
-    AIML:      { skills: ['TensorFlow', 'PyTorch', 'scikit-learn', 'OpenCV', 'Pandas', 'NumPy'], color: '#d4a85a', angle: Math.PI * 5 / 3 },
+    AIML:      { skills: ['TensorFlow', 'PyTorch', 'Hugging Face', 'scikit-learn', 'OpenCV', 'Pandas', 'NumPy'], color: '#d4a85a', angle: Math.PI * 5 / 3 },
     Database:  { skills: ['SQL', 'DBMS', 'Supabase'], color: '#a89060', angle: Math.PI * 4 / 3 },
     DevOps:    { skills: ['Git', 'GitHub', 'VS Code', 'Docker', 'AWS', 'CI/CD', 'GitHub Actions'], color: '#b89878', angle: Math.PI / 3 },
     Core:      { skills: ['DSA', 'OOP'], color: '#907060', angle: Math.PI },

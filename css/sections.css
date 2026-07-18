@@ -794,10 +794,25 @@ footer { border-top: 1px solid var(--border); padding: 2rem 0; }
   .footer-inner { flex-direction: column; gap: 0.5rem; text-align: center; }
 }
 @media (max-width: 600px) {
-  #hero { padding-bottom: 4rem; }
-  .hero-subline { flex-direction: column; align-items: flex-start; }
-  .hero-headline { font-size: clamp(2.5rem, 10vw, 4rem); }
+  #hero { 
+    padding-bottom: 3rem; 
+    padding-top: 7rem; 
+    min-height: auto; 
+    justify-content: flex-start;
+  }
+  .hero-subline { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 1.5rem; 
+  }
+  .hero-headline { font-size: clamp(2.5rem, 11vw, 3.5rem); }
   .about-stats-row { grid-template-columns: 1fr 1fr; }
   .certs-grid { grid-template-columns: 1fr; }
   .about-images { grid-template-rows: 180px 150px; }
+  .project-card { 
+    flex: 0 0 250px; /* Make cards smaller */
+    padding: 1.25rem;
+  }
+  .proj-desc { font-size: 0.8rem; }
+  .cert-card { padding: 1.25rem; }
 }

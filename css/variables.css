@@ -3,32 +3,32 @@
    ============================================ */
 
 :root {
-  /* Light — stark minimalist black and white */
-  --bg-primary:   #ffffff;
-  --bg-secondary: #f5f5f5;
-  --bg-card:      #ffffff;
-  --bg-dark:      #000000;
+  /* Light — soft airy cream */
+  --bg-primary:   #fdf9f3;
+  --bg-secondary: #f5f0e6;
+  --bg-card:      #fefcf8;
+  --bg-dark:      #1c1915;
 
-  --text-primary: #000000;
-  --text-secondary: #333333;
-  --text-muted: #888888;
-  --text-inv: #ffffff;
+  --text-primary: #1c1915;
+  --text-secondary: #6b6257;
+  --text-muted: #a89e92;
+  --text-inv: #f5f0e8;
 
-  --accent: #000000;
-  --accent-warm: #666666;
-  --accent-gold: #000000;
-  --accent-red: #000000;
-  --border: rgba(0, 0, 0, 0.1);
-  --border-strong: rgba(0, 0, 0, 0.3);
-  --progress-bg: linear-gradient(90deg, #000000, #333333);
+  --accent: #1c1915;
+  --accent-warm: #c8a87a;
+  --accent-gold: #d4a85a;
+  --accent-red: #a84040;
+  --border: rgba(28, 25, 21, 0.09);
+  --border-strong: rgba(28, 25, 21, 0.22);
+  --progress-bg: linear-gradient(90deg, #4a2f1d, #7a4b3a);
 
-  --nav-bg: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(245,245,245,0.6) 100%);
-  --card-shadow: 0 4px 32px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
-  --glow: rgba(0, 0, 0, 0.05);
+  --nav-bg: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(230,220,205,0.3) 100%);
+  --card-shadow: 0 4px 32px rgba(28, 25, 21, 0.07), 0 1px 4px rgba(28, 25, 21, 0.04);
+  --glow: rgba(200, 168, 122, 0.15);
 
-  --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
 
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -44,49 +44,49 @@
 }
 
 [data-theme="light"] {
-  /* Light — stark minimalist black and white */
-  --bg-primary:   #ffffff;
-  --bg-secondary: #f5f5f5;
-  --bg-card:      #ffffff;
-  --bg-dark:      #000000;
+  /* Light — soft airy cream */
+  --bg-primary:   #fdf9f3;
+  --bg-secondary: #f5f0e6;
+  --bg-card:      #fefcf8;
+  --bg-dark:      #1c1915;
 
-  --text-primary: #000000;
-  --text-secondary: #333333;
-  --text-muted: #888888;
-  --text-inv: #ffffff;
+  --text-primary: #1c1915;
+  --text-secondary: #6b6257;
+  --text-muted: #a89e92;
+  --text-inv: #f5f0e8;
 
-  --accent: #000000;
-  --accent-warm: #666666;
-  --accent-gold: #000000;
-  --accent-red: #000000;
-  --border: rgba(0, 0, 0, 0.1);
-  --border-strong: rgba(0, 0, 0, 0.3);
-  --progress-bg: linear-gradient(90deg, #000000, #333333);
+  --accent: #1c1915;
+  --accent-warm: #c8a87a;
+  --accent-gold: #d4a85a;
+  --accent-red: #a84040;
+  --border: rgba(28, 25, 21, 0.09);
+  --border-strong: rgba(28, 25, 21, 0.22);
+  --progress-bg: linear-gradient(90deg, #4a2f1d, #7a4b3a);
 
-  --nav-bg: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(245,245,245,0.6) 100%);
-  --card-shadow: 0 4px 32px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
-  --glow: rgba(0, 0, 0, 0.05);
+  --nav-bg: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(230,220,205,0.3) 100%);
+  --card-shadow: 0 4px 32px rgba(28, 25, 21, 0.07), 0 1px 4px rgba(28, 25, 21, 0.04);
+  --glow: rgba(200, 168, 122, 0.15);
 }
 
 [data-theme="dark"] {
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
-  --bg-card: #0a0a0a;
-  --bg-dark: #ffffff;
+  --bg-primary: #111009;
+  --bg-secondary: #1a1813;
+  --bg-card: #1e1c16;
+  --bg-dark: #f5f0e8;
 
-  --text-primary:    #ffffff;
-  --text-secondary:  #cccccc;
-  --text-muted:      #888888;
-  --text-inv: #000000;
+  --text-primary:    #f5f0e0;       /* slightly warmer white */
+  --text-secondary:  #ddd6cc;       /* was #c8bfb0 — solid readable body text */
+  --text-muted:      #b8ae9f;       /* was #8a8070 — tags, captions, now clearly visible */
+  --text-inv: #111009;
 
-  --accent: #ffffff;
-  --accent-warm: #cccccc;
-  --accent-gold: #ffffff;
-  --border:        rgba(255, 255, 255, 0.15);
-  --border-strong: rgba(255, 255, 255, 0.35);
-  --progress-bg: linear-gradient(90deg, #ffffff, #cccccc);
+  --accent: #f0ead8;
+  --accent-warm: #c8a87a;
+  --accent-gold: #d4a85a;
+  --border:        rgba(240, 234, 216, 0.18);   /* was 0.12 */
+  --border-strong: rgba(240, 234, 216, 0.40);   /* was 0.28 — tag outlines crisp */
+  --progress-bg: linear-gradient(90deg, var(--accent-warm), var(--accent-gold));
 
-  --nav-bg: linear-gradient(135deg, rgba(15,15,15,0.9) 0%, rgba(0,0,0,0.5) 100%);
-  --card-shadow: 0 4px 40px rgba(0, 0, 0, 0.8);
-  --glow: rgba(255, 255, 255, 0.05);
+  --nav-bg: linear-gradient(135deg, rgba(60,55,45,0.75) 0%, rgba(17,16,9,0.35) 100%);
+  --card-shadow: 0 4px 40px rgba(0, 0, 0, 0.45);
+  --glow: rgba(200, 168, 122, 0.08);
 }

@@ -131,6 +131,28 @@ body.cursor-text #cursor-ring { width: 72px; height: 22px; border-radius: 4px; o
 .tag:hover { background: var(--accent); color: var(--text-inv); border-color: var(--accent); }
 
 @media (max-width: 768px) {
-  #navbar { top: 0.8rem; max-width: calc(100vw - 2rem); }
-  .nav-links-wrap, .nav-sep { display: none; }
+  #navbar { 
+    top: 0.8rem; 
+    width: calc(100vw - 1.5rem);
+    max-width: 100vw; 
+  }
+  .nav-pill {
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 0.42rem 0.8rem;
+    justify-content: flex-start;
+  }
+  .nav-pill::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-links-wrap, .nav-sep { 
+    display: flex;
+  }
+  .nav-logo-text {
+    position: sticky;
+    left: 0;
+    background: inherit;
+    z-index: 2;
+  }
 }
